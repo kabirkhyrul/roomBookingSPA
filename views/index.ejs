@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Room Booking API :: <%= title %></title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="stylesheets/style.css">
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+ <style> 
+ 
+ 
+</style>
+</head>
+
+
+<body >
+
+  <% if (messages.success) { %>
+  <div class="alert alert-success" role="alert" id="slidingAlert"><%- messages.success %></div>
+  <% } %>
+
+  <% if (messages.error) { %>
+  <div class="alert alert-danger" role="alert" id="slidingAlert"><%- messages.error %></div>
+  <% } %>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card"> 
+        <div class="card-header">
+          <h4 class="text-center" >Book Room</h4>
+          
+        </div>
+        <div class="card-body">
+            <% var id = id; if( id ) { %>
+            <form action="/update/<%= id %>" method="post">
+            <% } else{ %>
+            <form action="/add" method="post">
+            <% } %>
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" value="<%= name %>" name="name"  autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label>Booking Date</label>
+                    <input type="date" class="form-control" value="<%= booking_date %>" name="booking_date"  autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label>Checkout Date</label>
+                    <input type="date" class="form-control" value="<%= checkout_date %>" name="checkout_date"  autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label>National ID</label>
+                    <input type="text" class="form-control" value="<%= nid %>" name="nid"  autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label>Mobile</label>
+                    <input type="text" class="form-control" value="<%= mobile %>" name="mobile"  autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-large btn-info" value="<%= button %>"/>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+    <div class="col-md-8">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="text-center "> Room Booking History </h4>
+          </div>
+          <div class="card-body">
+
+            
+            <table class="table">
+              <thead>
+                <tr>
+                  
+                  <th scope="col">Name</th>
+                  <th scope="col">Booking Date</th>
+                  <th scope="col">Checkout Date</th>
+                  <th scope="col">NID</th>
+                  <th scope="col">Mobile</th>
+                  
+                  <th width="200px">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% for(var i = 0; i< rooms.length; i++) { %>
+                <tr>                  
+                  <td><%= rooms[i].name%></td>
+                  <td><%= rooms[i].booking_date.toDateString()%></td>
+                  <td><%= rooms[i].checkout_date.toDateString()%></td>
+                  <td><%= rooms[i].nid%></td>
+                  <td><%= rooms[i].mobile%></td>
+                  <td>
+                    <a class="btn btn-success edit" href="../<%=rooms[i].id%>">Edit</a>
+                    <a class="btn btn-danger delete" onclick="return alert('Are You sure?')"
+                      href="../delete/<%=rooms[i].id%>">Delete</a>
+                  </td>
+                </tr>
+                <% } %>
+              </tbody>
+            </table>
+          
+
+            <!-- if result is empty -->
+            <% if(!rooms.length) { %>
+            <p class="text-center">No book found!</p>
+            <% } %>
+
+          </div>
+        </div>
+    </div>
+  </div>
+    <div class="container">
+        <p>This API is Developed <span class="typed-text"></span><span class="cursor">&nbsp;</span></p>
+    </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>  
+<script src="javascripts/script.js"></script>
+</body>
+
+</html>
