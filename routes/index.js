@@ -43,13 +43,7 @@ router.post('/add', function (req, res, next) {
     // set flash message
     req.flash('error', "Please fill all data");
     // render to index with flash message
-    res.render('index', {
-      name: name,
-      booking_date: booking_date,
-      checkout_date: checkout_date,
-      nid: nid,
-      mobile: mobile
-    })
+     res.redirect('/');
   }
 
   // if no error
@@ -148,7 +142,7 @@ router.post('/update/:id', function (req, res, next) {
       if (err) {
         req.flash('error', err);
         // render to views/index.ejs
-        res.render('index', { rooms: '' });
+        res.render('index', { rooms: '',title: 'Register', button: 'Register'});
       } else {
 
         // render to index
@@ -166,11 +160,13 @@ router.post('/update/:id', function (req, res, next) {
     });
     // render to index with flash message
     res.render('index', {
+      title: 'Register',
       name: name,
       booking_date: booking_date,
       checkout_date: checkout_date,
       nid: nid,
-      mobile: mobile
+      mobile: mobile,
+      button: 'Register'
     })
   }
 
@@ -198,7 +194,8 @@ router.post('/update/:id', function (req, res, next) {
           booking_date: form_data.booking_date,
           checkout_date: form_data.checkout_date,
           nid: form_data.nid,
-          mobile: form_data.mobile
+          mobile: form_data.mobile,
+          title: 'Register',button: 'Register'
         })
       } else {
         req.flash('success', 'Booking Updated');
