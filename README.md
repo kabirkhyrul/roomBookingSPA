@@ -1,9 +1,9 @@
-# roomBookingAPI
+# roomBookingSPA
  This is a single page Application programming interface for room booking system
 
 ## Installation
 ```
-git clone https://github.com/kabirkhyrul/roomBookingAPI.git
+git clone https://github.com/kabirkhyrul/roomBookingSPA.git
 cd roomBookingAPI
 npm install
 ```
