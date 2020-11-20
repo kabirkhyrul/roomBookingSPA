@@ -1,4 +1,6 @@
 # roomBookingSPA
+[![GitHub issues](https://img.shields.io/github/issues/kabirkhyrul/roomBookingSPA?style=for-the-badge)](https://github.com/kabirkhyrul/roomBookingSPA/issues)  [![GitHub forks](https://img.shields.io/github/forks/kabirkhyrul/roomBookingSPA?style=for-the-badge)](https://github.com/kabirkhyrul/roomBookingSPA/network) [![GitHub stars](https://img.shields.io/github/stars/kabirkhyrul/roomBookingSPA?style=for-the-badge)](https://github.com/kabirkhyrul/roomBookingSPA/stargazers) [![GitHub license](https://img.shields.io/github/license/kabirkhyrul/roomBookingSPA?style=for-the-badge)](https://github.com/kabirkhyrul/roomBookingSPA/blob/master/LICENSE)
+
  This is a single page Application programming interface for room booking system
 
 ## Installation
